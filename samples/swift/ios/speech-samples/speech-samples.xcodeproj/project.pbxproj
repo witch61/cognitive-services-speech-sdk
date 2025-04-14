@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		071C9743C21F3C327237D771 /* Pods_speech_samples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75B62D68FA26B84DD23CFCC /* Pods_speech_samples.framework */; };
+		18D91A0F2DACD21800877635 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D91A0E2DACD21700877635 /* AvatarViewController.swift */; };
 		3CB230B12692E530009AD484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB230B02692E530009AD484 /* AppDelegate.swift */; };
 		3CB230B32692E530009AD484 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB230B22692E530009AD484 /* SceneDelegate.swift */; };
 		3CB230B52692E530009AD484 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB230B42692E530009AD484 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18D91A0E2DACD21700877635 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		3CB230AD2692E530009AD484 /* speech-samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "speech-samples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB230B02692E530009AD484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CB230B22692E530009AD484 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		3CB230AF2692E530009AD484 /* speech-samples */ = {
 			isa = PBXGroup;
 			children = (
+				18D91A0E2DACD21700877635 /* AvatarViewController.swift */,
 				3CB230B02692E530009AD484 /* AppDelegate.swift */,
 				3CB230B22692E530009AD484 /* SceneDelegate.swift */,
 				3CB230B42692E530009AD484 /* ViewController.swift */,
@@ -209,9 +212,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-speech-samples/Pods-speech-samples-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-speech-samples/Pods-speech-samples-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -228,6 +235,7 @@
 				3CB230B52692E530009AD484 /* ViewController.swift in Sources */,
 				3CB230B12692E530009AD484 /* AppDelegate.swift in Sources */,
 				3CB230B32692E530009AD484 /* SceneDelegate.swift in Sources */,
+				18D91A0F2DACD21800877635 /* AvatarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,12 +384,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6MNMUV45B;
 				INFOPLIST_FILE = "speech-samples/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.cognitiveservices.speech-samples";
+				PRODUCT_BUNDLE_IDENTIFIER = com.niceTalk.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -395,12 +405,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6MNMUV45B;
 				INFOPLIST_FILE = "speech-samples/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.cognitiveservices.speech-samples";
+				PRODUCT_BUNDLE_IDENTIFIER = com.niceTalk.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

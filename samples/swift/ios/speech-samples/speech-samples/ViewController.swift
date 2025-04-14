@@ -21,45 +21,36 @@ struct Word {
 }
 
 class ViewController: UIViewController {
-    var label: UITextView!
-    var continuousPronunciationAssessmentButton: UIButton!
-    var pronunciationAssessmentWithStreamButton: UIButton!
-    var pronunciationAssessmentWithMicrophoneButton: UIButton!
+    @IBOutlet weak var label: UITextView!
+    @IBOutlet weak var continuousPronunciationAssessmentButton: UIButton!
+    @IBOutlet weak var
+    pronunciationAssessmentWithStreamButton: UIButton!
+    @IBOutlet weak var
+    pronunciationAssessmentWithMicrophoneButton: UIButton!
 
+    @IBOutlet weak var avatarButton: UIButton!
     var sub: String!
     var region: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // load subscription information
-        sub = "YourSubscriptionKey"
-        region = "YourServiceRegion"
-
-        continuousPronunciationAssessmentButton = UIButton(frame: CGRect(x: 30, y: 100, width: 300, height: 50))
-        continuousPronunciationAssessmentButton.setTitle("Continuous Pron-Assessment", for: .normal)
-        continuousPronunciationAssessmentButton.addTarget(self, action:#selector(self.continuousPronunciationAssessmentButtonClicked), for: .touchUpInside)
-        continuousPronunciationAssessmentButton.setTitleColor(UIColor.black, for: .normal)
-
-        pronunciationAssessmentWithStreamButton = UIButton(frame: CGRect(x: 30, y: 140, width: 300, height: 50))
-        pronunciationAssessmentWithStreamButton.setTitle("Pron-Assessment With Stream", for: .normal)
-        pronunciationAssessmentWithStreamButton.addTarget(self, action: #selector(self.pronunciationAssessmentWithStreamButtonClicked), for: .touchUpInside)
-        pronunciationAssessmentWithStreamButton.setTitleColor(UIColor.black, for: .normal)
         
-        pronunciationAssessmentWithMicrophoneButton = UIButton(frame: CGRect(x: 30, y: 180, width: 300, height: 50))
-        pronunciationAssessmentWithMicrophoneButton.setTitle("Pron-Assessment With Microphone", for: .normal)
-        pronunciationAssessmentWithMicrophoneButton.addTarget(self, action: #selector(self.pronunciationAssessmentWithMicrophoneButtonClicked), for: .touchUpInside)
-        pronunciationAssessmentWithMicrophoneButton.setTitleColor(UIColor.black, for: .normal)
+        // load subscription information
+        sub = "9zP5NeEXobQlBFoBbPTdz44D4KpGEmkhhVp0OT9pEOfOxHnWig53JQQJ99BDAC3pKaRXJ3w3AAAYACOGjlvQ"
+        region = "eastasia"
+        
+        continuousPronunciationAssessmentButton.addTarget(self, action:#selector(self.continuousPronunciationAssessmentButtonClicked), for: .touchUpInside)
 
-        label = UITextView(frame: CGRect(x: 30, y: 280, width: 300, height: 400))
-        label.textColor = UIColor.black
+        pronunciationAssessmentWithStreamButton.addTarget(self, action: #selector(self.pronunciationAssessmentWithStreamButtonClicked), for: .touchUpInside)
+        
+        pronunciationAssessmentWithMicrophoneButton.addTarget(self, action: #selector(self.pronunciationAssessmentWithMicrophoneButtonClicked), for: .touchUpInside)
+
         label.isEditable = false
         label.text = "Recognition Result"
+        
+        avatarButton.addTarget(self, action: #selector(avatarButtonClicked), for: .touchUpInside)
 
-        self.view.addSubview(label)
-        self.view.addSubview(continuousPronunciationAssessmentButton)
-        self.view.addSubview(pronunciationAssessmentWithStreamButton)
-        self.view.addSubview(pronunciationAssessmentWithMicrophoneButton)
+        
     }
 
     @objc func continuousPronunciationAssessmentButtonClicked() {
@@ -78,6 +69,13 @@ class ViewController: UIViewController {
     @objc func pronunciationAssessmentWithMicrophoneButtonClicked(){
         DispatchQueue.global(qos: .userInitiated).async {
             self.pronunciationAssessmentWithMicrophone()
+        }
+    }
+    
+    @objc func avatarButtonClicked() {
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "AvatarViewController")
+        if ((ctrl) != nil) {
+            self.navigationController?.pushViewController(ctrl!, animated: true)
         }
     }
 
@@ -281,7 +279,7 @@ class ViewController: UIViewController {
         let path = bundle.path(forResource: "zhcn_continuous_mode_sample", ofType: "wav")
         if (path == nil) {
             print("Cannot find audio file!");
-            self.updateLabel(text: "Cannot find audio file", color: UIColor.red)
+            self.updateLabel(text: "Cannot find audio file", color: UIColor.systemRed)
             return;
         }
         print("pronunciation assessment audio file path: ", path!)
@@ -314,7 +312,7 @@ class ViewController: UIViewController {
 
         reco.addRecognizingEventHandler() {reco, evt in
             print("intermediate recognition result: \(evt.result.text ?? "(no result)")")
-            self.updateLabel(text: evt.result.text, color: .gray)
+            self.updateLabel(text: evt.result.text, color: .systemGray)
         }
 
         var startOffset: TimeInterval = 0, endOffset: TimeInterval = 0;
@@ -325,7 +323,7 @@ class ViewController: UIViewController {
             print("Received final result event. SessionId: \(evt.sessionId), recognition result: \(evt.result.text!). Status \(evt.result.reason). offset \(evt.result.offset) duration \(evt.result.duration) resultid: \(evt.result.resultId)");
             let pronunciationResult = SPXPronunciationAssessmentResult.init(evt.result)!;
             let resultText = "Received final result event. \nrecognition result: \(evt.result.reason), Accuracy score: \(pronunciationResult.accuracyScore), Prosody score: \(pronunciationResult.prosodyScore), Pronunciation score: \(pronunciationResult.pronunciationScore), Completeness Score: \(pronunciationResult.completenessScore), Fluency score: \(pronunciationResult.fluencyScore)"
-            self.updateLabel(text: resultText, color: UIColor.black)
+            self.updateLabel(text: resultText, color: UIColor.systemGray2)
             
             prosodyScores.append(pronunciationResult.prosodyScore)
 
@@ -341,7 +339,7 @@ class ViewController: UIViewController {
             end = true
         }
 
-        updateLabel(text: "Assessing ...", color: .gray)
+        updateLabel(text: "Assessing ...", color: .systemGray)
         print("Assessing...")
 
         try! reco.startContinuousRecognition()
@@ -400,8 +398,7 @@ class ViewController: UIViewController {
                  }
                  
                  if word.errorType == "None" {
-                     durationSum += word.duration + 0.01
-                     validCount += 1
+                      validCount += 1
                  }
              }
              let accuracyScore = totalAccuracyScore / Double(accuracyCount)
@@ -420,7 +417,7 @@ class ViewController: UIViewController {
                  resultText += "\n"
                  resultText += " word: \(w.word)\taccuracy score: \(w.accuracyScore)\terror type: \(w.errorType);"
              }
-             self.updateLabel(text: resultText, color: UIColor.black)
+             self.updateLabel(text: resultText, color: UIColor.systemGray2)
          }
     }
 
@@ -436,7 +433,7 @@ class ViewController: UIViewController {
         let path = bundle.path(forResource: "whatstheweatherlike", ofType: "wav")
         if (path == nil) {
             print("Cannot find audio file!");
-            self.updateLabel(text: "Cannot find audio file", color: UIColor.red)
+            self.updateLabel(text: "Cannot find audio file", color: UIColor.systemRed)
             return;
         }
         print("pronunciation assessment audio file path: ", path!)
@@ -474,7 +471,7 @@ class ViewController: UIViewController {
         audioInputStream.write(Data(audioData))
         audioInputStream.write(Data())
         
-        self.updateLabel(text: "Analysising", color: UIColor.black)
+        self.updateLabel(text: "Analysising", color: UIColor.systemGray2)
         
         DispatchQueue.global().async {
             // Handle the recognition result
@@ -483,7 +480,7 @@ class ViewController: UIViewController {
                     print("Error: pronunciationResult is Nil")
                     return
                 }
-                self.updateLabel(text: "generating result...", color: UIColor.black)
+                self.updateLabel(text: "generating result...", color: UIColor.systemGray2)
                 var finalResult = ""
                 let resultText = "Accuracy score: \(pronunciationResult.accuracyScore), Prosody score: \(pronunciationResult.prosodyScore), Pronunciation score: \(pronunciationResult.pronunciationScore), Completeness Score: \(pronunciationResult.completenessScore), Fluency score: \(pronunciationResult.fluencyScore)"
                 print(resultText)
@@ -498,7 +495,7 @@ class ViewController: UIViewController {
                     }
                 }
                 
-                self.updateLabel(text: finalResult, color: UIColor.black)
+                self.updateLabel(text: finalResult, color: UIColor.systemGray2)
                 
                 let endTime = Date()
                 let timeCost = endTime.timeIntervalSince(startTime) * 1000
@@ -550,14 +547,14 @@ class ViewController: UIViewController {
         
         try! pronAssessmentConfig.apply(to: recognizer)
         
-        self.updateLabel(text: "Analysising", color: UIColor.black)
+        self.updateLabel(text: "Analysising", color: UIColor.systemGray2)
         // Handle the recognition result
         try! recognizer.recognizeOnceAsync { result in
             guard let pronunciationResult = SPXPronunciationAssessmentResult(result) else {
                 print("Error: pronunciationResult is Nil")
                 return
             }
-            self.updateLabel(text: "generating result...", color: UIColor.black)
+            self.updateLabel(text: "generating result...", color: UIColor.systemGray2)
             var finalResult = ""
             let resultText = "Accuracy score: \(pronunciationResult.accuracyScore), Prosody score: \(pronunciationResult.prosodyScore), Pronunciation score: \(pronunciationResult.pronunciationScore), Completeness Score: \(pronunciationResult.completenessScore), Fluency score: \(pronunciationResult.fluencyScore)"
             print(resultText)
@@ -572,7 +569,7 @@ class ViewController: UIViewController {
                 }
             }
             
-            self.updateLabel(text: finalResult, color: UIColor.black)
+            self.updateLabel(text: finalResult, color: UIColor.systemGray2)
             stopRecognitionSemaphore.signal()
         }
         stopRecognitionSemaphore.wait()
@@ -613,14 +610,14 @@ class ViewController: UIViewController {
         // Apply the pronunciation assessment config object
         try! pronunciationConfig.apply(to: recognizer)
         
-        self.updateLabel(text: "Speaking...", color: UIColor.black)
+        self.updateLabel(text: "Speaking...", color: UIColor.systemGray2)
         // Handle the recognition result
         try! recognizer.recognizeOnceAsync { result in
             guard let pronunciationResult = SPXPronunciationAssessmentResult(result) else {
                 print("Error: pronunciationResult is Nil")
                 return
             }
-            self.updateLabel(text: "generating result...", color: UIColor.black)
+            self.updateLabel(text: "generating result...", color: UIColor.systemGray2)
             var finalResult = ""
             let resultText = "Accuracy score: \(pronunciationResult.accuracyScore), Prosody score: \(pronunciationResult.prosodyScore), Pronunciation score: \(pronunciationResult.pronunciationScore), Completeness Score: \(pronunciationResult.completenessScore), Fluency score: \(pronunciationResult.fluencyScore)"
             print(resultText)
@@ -634,7 +631,7 @@ class ViewController: UIViewController {
                     finalResult.append("\(wordString)    \(word.accuracyScore)   \(errorType)\n")
                 }
             }
-            self.updateLabel(text: finalResult, color: UIColor.black)
+            self.updateLabel(text: finalResult, color: UIColor.systemGray2)
             stopRecognitionSemaphore.signal()
         }
         stopRecognitionSemaphore.wait()

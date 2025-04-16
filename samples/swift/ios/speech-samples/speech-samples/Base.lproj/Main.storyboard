@@ -17,48 +17,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="caj-8O-WJI">
-                                <rect key="frame" x="16" y="317" width="361" height="498"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="caj-8O-WJI">
+                                <rect key="frame" x="16" y="540" width="362" height="275"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="d5J-F7-ctg"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" id="fXZ-fB-V0n">
-                                <rect key="frame" x="50" y="59" width="293.66666666666669" height="197.33333333333337"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="16" id="fXZ-fB-V0n">
+                                <rect key="frame" x="50" y="59" width="294" height="308"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wp0-6f-Ef8">
-                                        <rect key="frame" x="21.666666666666671" y="0.0" width="250.66666666666663" height="47.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250.66666666666666" height="48.666666666666664"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Continuous Pron-Assessment"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adB-uy-zKg">
-                                        <rect key="frame" x="18" y="67.333333333333329" width="257.66666666666669" height="47.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="64.666666666666671" width="257.66666666666669" height="49"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Pron-Assessment With Stream"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz0-AI-mRe">
-                                        <rect key="frame" x="0.0" y="134.66666666666666" width="293.66666666666669" height="62.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="129.66666666666666" width="293.66666666666669" height="48.666666666666657"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Pron-Assessment With Microphone"/>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bp-pV-3MB">
-                                        <rect key="frame" x="98" y="197.33333333333334" width="97.666666666666686" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="186.33333333333334" width="97.666666666666671" height="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" image="arrowshape.forward.circle" catalog="system" title="Avatar"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhQ-GA-vg1">
+                                        <rect key="frame" x="0.0" y="194.33333333333334" width="240.33333333333334" height="49"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Recognize Speech From Mic"/>
+                                        <connections>
+                                            <action selector="recognizeSpeechFromMicButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qT8-JM-3ik"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvQ-El-Z6z">
+                                        <rect key="frame" x="0.0" y="259.33333333333331" width="140.66666666666666" height="48.666666666666686"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Text To Speech"/>
+                                        <connections>
+                                            <action selector="textToSpeechButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hvy-lF-EEY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2x-Sh-ovv">
+                                <rect key="frame" x="26" y="446" width="352" height="72"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="F0n-RF-CPU"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 跟读（选Microphone）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Dc-YT-6Oi">
+                                <rect key="frame" x="26" y="417" width="168.33333333333334" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="n5Y-sP-1ht"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="caj-8O-WJI" firstAttribute="top" secondItem="F2x-Sh-ovv" secondAttribute="bottom" constant="22" id="BxY-E6-OhM"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="caj-8O-WJI" secondAttribute="bottom" constant="-31" id="Gav-Pi-8zt"/>
+                            <constraint firstItem="6Dc-YT-6Oi" firstAttribute="top" secondItem="fXZ-fB-V0n" secondAttribute="bottom" constant="50" id="WUT-AR-mn1"/>
+                            <constraint firstItem="caj-8O-WJI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aCw-MM-6d5"/>
+                            <constraint firstItem="F2x-Sh-ovv" firstAttribute="leading" secondItem="6Dc-YT-6Oi" secondAttribute="leading" id="f0F-WG-kHu"/>
+                            <constraint firstItem="caj-8O-WJI" firstAttribute="centerX" secondItem="fXZ-fB-V0n" secondAttribute="centerX" id="h82-jL-2KB"/>
+                            <constraint firstItem="n5Y-sP-1ht" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Dc-YT-6Oi" secondAttribute="trailing" symbolic="YES" id="lO9-6S-Ebc"/>
+                            <constraint firstItem="caj-8O-WJI" firstAttribute="trailing" secondItem="F2x-Sh-ovv" secondAttribute="trailing" id="nHY-3t-MYj"/>
+                            <constraint firstItem="F2x-Sh-ovv" firstAttribute="leading" secondItem="n5Y-sP-1ht" secondAttribute="leading" constant="26" id="uAN-r6-Yyu"/>
+                            <constraint firstItem="F2x-Sh-ovv" firstAttribute="top" secondItem="6Dc-YT-6Oi" secondAttribute="bottom" constant="8.6699999999999999" id="wEA-wn-bnW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bpb-pS-ZcU"/>
                     <connections>
                         <outlet property="avatarButton" destination="8bp-pV-3MB" id="5qk-Ls-1Pd"/>
                         <outlet property="continuousPronunciationAssessmentButton" destination="wp0-6f-Ef8" id="rmU-ZM-mhq"/>
+                        <outlet property="inputEnglishTV" destination="F2x-Sh-ovv" id="aYU-zo-4vD"/>
                         <outlet property="label" destination="caj-8O-WJI" id="7lR-4K-g7C"/>
                         <outlet property="pronunciationAssessmentWithMicrophoneButton" destination="kz0-AI-mRe" id="opo-J7-NIh"/>
                         <outlet property="pronunciationAssessmentWithStreamButton" destination="adB-uy-zKg" id="mnm-BT-fXg"/>
@@ -173,6 +222,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

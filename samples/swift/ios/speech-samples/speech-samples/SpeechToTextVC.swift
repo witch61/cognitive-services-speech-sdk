@@ -22,11 +22,7 @@ let EmbeddedSpeechRecognitionModelFolderName = "STT"
 /// For example: "en-US" or "Microsoft Speech Recognizer en-US FP Model V8"
 let EmbeddedSpeechRecognitionModelName = "YourEmbeddedSpeechRecognitionModelName"
 
-/// Embedded speech model license (text).
-let EmbeddedSpeechModelLicense = "YourEmbeddedSpeechModelLicense"
-
-
-class ViewController: UIViewController {
+class SpeechToTextVC: UIViewController {
     var label: UILabel!
     var fromMicButton: UIButton!
     
@@ -34,23 +30,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Setup embedded speech to text (STT) model path
-        let bundle = Bundle(for: type(of: self))
-        if let absoluteModelPath = bundle.path(forResource: EmbeddedSpeechRecognitionModelFolderName, ofType: nil) {
-            do {
-                embeddedSpeechConfig = try SPXEmbeddedSpeechConfiguration(fromPath: absoluteModelPath)
-                embeddedSpeechConfig?.setSpeechRecognitionModel(EmbeddedSpeechRecognitionModelName,
-                                                                license: EmbeddedSpeechModelLicense)
-            }
-            catch {
-                print("Error: \(error) in initializing embedded speech configuration.")
-                embeddedSpeechConfig = nil
-            }
-        } else {
-            print("Error: Unable to locate the specified embedded speech recognition model.")
-        }
-
         setupUI()
     }
     

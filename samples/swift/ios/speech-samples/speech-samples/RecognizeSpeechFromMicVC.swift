@@ -5,20 +5,14 @@
 
 // <code>
 import UIKit
+import MicrosoftCognitiveServicesSpeech
 
 class RecognizeSpeechFromMicVC: UIViewController {
     var label: UILabel!
     var fromMicButton: UIButton!
-    
-    var sub: String!
-    var region: String!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // load subscription information
-        sub = "YourSubscriptionKey"
-        region = "YourServiceRegion"
         
         label = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
         label.textColor = UIColor.black
@@ -44,6 +38,7 @@ class RecognizeSpeechFromMicVC: UIViewController {
     }
     
     func recognizeFromMic() {
+        
         var speechConfig: SPXSpeechConfiguration?
         do {
             try speechConfig = SPXSpeechConfiguration(subscription: sub, region: region)

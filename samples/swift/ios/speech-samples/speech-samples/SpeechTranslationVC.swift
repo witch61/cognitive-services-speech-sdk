@@ -21,11 +21,8 @@ let EmbeddedSpeechTranslationModelFolderName = "ST"
 /// For example: "Microsoft Speech Translator Many-to-English Model V3"
 let EmbeddedSpeechTranslationModelName = "YourEmbeddedSpeechTranslationModelName"
 
-/// Embedded speech model license (text).
-let EmbeddedSpeechModelLicense = "YourEmbeddedSpeechModelLicense"
 
-
-class ViewController: UIViewController {
+class SpeechTranslationVC: UIViewController {
     var label: UILabel!
     var fromMicButton: UIButton!
     

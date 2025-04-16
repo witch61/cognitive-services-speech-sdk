@@ -29,15 +29,12 @@ class ViewController: UIViewController {
     pronunciationAssessmentWithMicrophoneButton: UIButton!
 
     @IBOutlet weak var avatarButton: UIButton!
-    var sub: String!
-    var region: String!
+    
+    @IBOutlet weak var inputEnglishTV: UITextView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // load subscription information
-        sub = "9zP5NeEXobQlBFoBbPTdz44D4KpGEmkhhVp0OT9pEOfOxHnWig53JQQJ99BDAC3pKaRXJ3w3AAAYACOGjlvQ"
-        region = "eastasia"
         
         continuousPronunciationAssessmentButton.addTarget(self, action:#selector(self.continuousPronunciationAssessmentButtonClicked), for: .touchUpInside)
 
@@ -47,12 +44,23 @@ class ViewController: UIViewController {
 
         label.isEditable = false
         label.text = "Recognition Result"
+        self.inputEnglishTV.text = "what's the weather like"
         
         avatarButton.addTarget(self, action: #selector(avatarButtonClicked), for: .touchUpInside)
 
         
     }
-
+    
+    @IBAction func textToSpeechButtonClicked(_ sender: Any) {
+        let ctrl = TextToSpeechVC();
+        self.navigationController?.pushViewController(ctrl, animated: true)
+    }
+    
+    @IBAction func recognizeSpeechFromMicButtonClicked(_ sender: Any) {
+        let ctrl = RecognizeSpeechFromMicVC()
+        self.navigationController?.pushViewController(ctrl, animated: true)
+    }
+    
     @objc func continuousPronunciationAssessmentButtonClicked() {
         DispatchQueue.global(qos: .userInitiated).async {
             self.continuousPronunciationAssessment()
@@ -587,7 +595,10 @@ class ViewController: UIViewController {
         let language = "en-US"
         
         // Replace with your reference text
-        let referenceText = "what's the weather like"
+        let referenceText = self.inputEnglishTV.text ?? "";
+//        if referenceText.isEmpty {
+//            referenceText = "what's the weather like"
+//        }
 
         // Create a pronunciation assessment config
         let pronunciationConfig = try! SPXPronunciationAssessmentConfiguration(

@@ -1,7 +1,7 @@
 target 'speech-samples' do
     platform :ios, '15.0'
-    pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.25'
+    pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.42.0'
     pod 'Differ'
-    pod  'WebRTC-lib'
+    pod 'WebRTC-lib'
     use_frameworks!
 end

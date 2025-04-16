@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		071C9743C21F3C327237D771 /* Pods_speech_samples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75B62D68FA26B84DD23CFCC /* Pods_speech_samples.framework */; };
 		18D91A0F2DACD21800877635 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D91A0E2DACD21700877635 /* AvatarViewController.swift */; };
+		18D91A132DAE769C00877635 /* SpeechToTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D91A122DAE769C00877635 /* SpeechToTextVC.swift */; };
+		18D91A152DAE776800877635 /* SpeechTranslationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D91A142DAE776800877635 /* SpeechTranslationVC.swift */; };
+		18D91A172DAE77AE00877635 /* TextToSpeechVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D91A162DAE77AE00877635 /* TextToSpeechVC.swift */; };
+		18D91A1D2DAE7AB000877635 /* RecognizeSpeechFromMicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D91A1C2DAE7AB000877635 /* RecognizeSpeechFromMicVC.swift */; };
+		18D91A1F2DAE7AD700877635 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D91A1E2DAE7ACE00877635 /* Config.swift */; };
 		3CB230B12692E530009AD484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB230B02692E530009AD484 /* AppDelegate.swift */; };
 		3CB230B32692E530009AD484 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB230B22692E530009AD484 /* SceneDelegate.swift */; };
 		3CB230B52692E530009AD484 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB230B42692E530009AD484 /* ViewController.swift */; };
@@ -24,6 +29,11 @@
 
 /* Begin PBXFileReference section */
 		18D91A0E2DACD21700877635 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
+		18D91A122DAE769C00877635 /* SpeechToTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextVC.swift; sourceTree = "<group>"; };
+		18D91A142DAE776800877635 /* SpeechTranslationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechTranslationVC.swift; sourceTree = "<group>"; };
+		18D91A162DAE77AE00877635 /* TextToSpeechVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechVC.swift; sourceTree = "<group>"; };
+		18D91A1C2DAE7AB000877635 /* RecognizeSpeechFromMicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeSpeechFromMicVC.swift; sourceTree = "<group>"; };
+		18D91A1E2DAE7ACE00877635 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3CB230AD2692E530009AD484 /* speech-samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "speech-samples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB230B02692E530009AD484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CB230B22692E530009AD484 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +98,12 @@
 		3CB230AF2692E530009AD484 /* speech-samples */ = {
 			isa = PBXGroup;
 			children = (
+				18D91A1E2DAE7ACE00877635 /* Config.swift */,
+				18D91A162DAE77AE00877635 /* TextToSpeechVC.swift */,
+				18D91A142DAE776800877635 /* SpeechTranslationVC.swift */,
+				18D91A122DAE769C00877635 /* SpeechToTextVC.swift */,
 				18D91A0E2DACD21700877635 /* AvatarViewController.swift */,
+				18D91A1C2DAE7AB000877635 /* RecognizeSpeechFromMicVC.swift */,
 				3CB230B02692E530009AD484 /* AppDelegate.swift */,
 				3CB230B22692E530009AD484 /* SceneDelegate.swift */,
 				3CB230B42692E530009AD484 /* ViewController.swift */,
@@ -234,6 +249,11 @@
 			files = (
 				3CB230B52692E530009AD484 /* ViewController.swift in Sources */,
 				3CB230B12692E530009AD484 /* AppDelegate.swift in Sources */,
+				18D91A1F2DAE7AD700877635 /* Config.swift in Sources */,
+				18D91A152DAE776800877635 /* SpeechTranslationVC.swift in Sources */,
+				18D91A132DAE769C00877635 /* SpeechToTextVC.swift in Sources */,
+				18D91A172DAE77AE00877635 /* TextToSpeechVC.swift in Sources */,
+				18D91A1D2DAE7AB000877635 /* RecognizeSpeechFromMicVC.swift in Sources */,
 				3CB230B32692E530009AD484 /* SceneDelegate.swift in Sources */,
 				18D91A0F2DACD21800877635 /* AvatarViewController.swift in Sources */,
 			);
